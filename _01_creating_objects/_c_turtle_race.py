@@ -28,27 +28,42 @@ def draw_background():
 
 # ====================== DO NOT EDIT THE CODE ABOVE ===========================
 
+def gameWon(turtles):
+    for index, t in enumerate(turtles):
+        if t.xcor() > 349:
+            t.color("Red")
+            print("Turtle Number " + str(index + 1) + " won!")
+            return True
+    return False
 
 if __name__ == '__main__':
     draw_background()
 
     # TODO 1) Create an empty list of turtles
-
+    turtles = list()
     # TODO 2) Create a new turtle and set its shape to 'turtle
-
+    #shelly = turtle.Turtle()
+    #shelly.shape("turtle")
     # TODO 3) Set the turtle's speed to 3
-
+    #shelly.speed(3)
     # TODO 4) Set the turtle's pen up
-
+    #shelly.penup()
     # TODO 5) Use the turtle's goto() method to set its position on the left
     #  side of the screen
-
+    #shelly.goto(-368.0, 191.0)
     # TODO 6) use a loop to repeat the previous instructions and create
     #  8 turtles lined up on the left side of the screen
     #  *HINT* click on the window to print the corresponding x, y location
-
+    for i in range(8):
+        turtles.append(turtle.Turtle())
+        turtles[i].shape("turtle")
+        turtles[i].speed(3)
+        turtles[i].penup()
+        turtles[i].goto(-415.0, 191.0 - 55*i)
     # TODO 7) Move each turtle forward a random distance between 1 and 20
-
+    while not gameWon(turtles):
+        for t in turtles:
+            t.forward(random.randint(1, 20))
     # TODO 8) Create a loop to keep moving each turtle until a turtle
     #  crosses the finish line
     #  *HINT* click on the window to print the corresponding x, y location

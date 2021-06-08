@@ -44,6 +44,11 @@ if __name__ == '__main__':
     # Use Movie and NetflixQueue classes above to complete the following changes:
 
     # TODO 1) Instantiate (create) at least 5 Movie objects.
+    last_airbender = Movie("The Last Airbender", 0)
+    tangled = Movie("Tangled", 5)
+    toy_story = Movie("Toy Story", 3)
+    httyd = Movie("How to Train Your Dragon", 5)
+    chronicle = Movie("Chronicle", 4)
     # TODO 2) Use the Movie class to get the ticket price of one of your movies.
     # TODO 3) Instantiate a NetflixQueue object.
     # TODO 4) Add your movies to the Netflix queue.
