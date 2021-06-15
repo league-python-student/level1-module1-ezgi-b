@@ -50,9 +50,19 @@ if __name__ == '__main__':
     httyd = Movie("How to Train Your Dragon", 5)
     chronicle = Movie("Chronicle", 4)
     # TODO 2) Use the Movie class to get the ticket price of one of your movies.
+    print(Movie.get_ticket_price(last_airbender))
     # TODO 3) Instantiate a NetflixQueue object.
+    queue = NetflixQueue()
     # TODO 4) Add your movies to the Netflix queue.
+    queue.add_movie(last_airbender)
+    queue.add_movie(tangled)
+    queue.add_movie(toy_story)
+    queue.add_movie(httyd)
+    queue.add_movie(chronicle)
     # TODO 5) Print all the movies in your queue.
+    queue.print_movies()
     # TODO 6) Use your NetflixQueue object to finish the sentence "the best movie is...."
+    print("The best movie is " + queue.get_best_movie().title)
     # TODO 7) Use your NetflixQueue to finish the sentence "the second best movie is...."
+    print("The second best movie is " + queue.get_movie(1).title)
 
