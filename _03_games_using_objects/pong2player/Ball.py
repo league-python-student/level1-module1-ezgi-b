@@ -11,8 +11,14 @@ class Ball():
         self.radius = radius
         self.color_index = 0
         self.ball_color = color_progression[self.color_index]
-        self.x_speed = random(-self.speed, self.speed)
-        self.y_speed = self.speed
+        rand = random(0, 1)
+        if rand < 0.5:
+            self.x_speed = self.speed
+        else:
+            self.x_speed = -self.speed
+        
+        self.y_speed = random(-self.speed, self.speed)
+        
         self.currently_intersects = False
         
     def update(self):
@@ -20,6 +26,9 @@ class Ball():
             self.x_speed = -self.x_speed
             
         if self.y + self.radius < 0:
+            self.y_speed = -self.y_speed
+            
+        if self.y + self.radius > height or self.y - self.radius < 0:
             self.y_speed = -self.y_speed
             
         self.x += self.x_speed

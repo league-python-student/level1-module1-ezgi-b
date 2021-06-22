@@ -9,17 +9,18 @@ started = False
 def setup():
     pass
     # 1. Set the size of your window to at least width = 800, height = 600
-    size(600, 500)
+    size(800, 800)
     # 2. Make a global ball variable, for example:
-    global ball, paddle
+    global ball, paddle, score
     # 3. Initialize your ball variable to a new Ball(), for example:
     ball = Ball(200, 200)
     # 4. Make a global paddle variable.
     
     # 5. Initialize your paddle variable to a new Paddle() for example:
-    paddle = Paddle(300, 450)
+    paddle = Paddle(300, 700)
+    score = 0
 def draw():
-    global ball, paddle
+    global ball, paddle, score
     if not started:
         textSize(32)
         fill(0)
@@ -41,20 +42,23 @@ def draw():
     #     Call the ball object's collision() method and pass the
     #     paddle object as an input variable.
     #     Does the ball bounce off the paddel?
-    ball.collision(paddle)
+    if ball.collision(paddle):
+        score += 1
     
 
     # 12. End the game when the ball goes below the bottom of the screen.
     #     You can use noLoop() to freeze the game and text() to print text
     #     on the screen.
-
+    if ball.y > 800:
+        noLoop()
+        text("Game Over!", 200, 200)
     # 13. Figure out how to add a score to the game so every bounce off
     #     the paddle increases the player socre
 
     # *EXTRA*
     # Can you figure out how to make a 2 player pong game with paddles on
     # the left and right on the screen?
-    
+    text(score, 700, 100)
     pass
 
 # 9. Change paddle.x_speed when the LEFT or RIGHT arrow keys are pressed.
@@ -66,9 +70,9 @@ def keyPressed():
         started = True 
     elif key == CODED:
         if keyCode == LEFT:
-            paddle.x_speed = -4
+            paddle.x_speed = -6
         elif keyCode == RIGHT:
-            paddle.x_speed = 4
+            paddle.x_speed = 6
 
 
 # 10. Set paddle.x_speed to 0 when the LEFT or RIGHT arrow keys are released.
